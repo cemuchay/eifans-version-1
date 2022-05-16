@@ -138,9 +138,10 @@ body,
         height: 25px;
         padding: 0 25px 0 15px;
         color: $eifans-white;
-        background: hsl(0, 86%, 54%);
+        background: hsl(0, 63%, 40%);
         font-size: 14px;
         border-radius: 5px 5px 0 0;
+        font-weight: 700;
     }
 
     p {
@@ -191,6 +192,15 @@ body,
     font-size: 16px;
     background: $eifans-black;
     color: $eifans-white;
+
+    div {
+        margin-bottom: 10px;
+    }
+
+    a {
+        color: $eifans-white;
+        padding: 10px;
+    }
 }
 
 // IMPORT RESPONSIVE AT THE END

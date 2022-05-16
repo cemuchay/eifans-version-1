@@ -13,7 +13,7 @@ let i = 1;
 
 
 //create element div while i is less than 3 and add class scroll-menu and assign each a variable
-while (i < 4) {
+while (i < 3) {
     // SCROLL MENU
     let scrollMenu = document.createElement("div");
     scrollMenu.classList.add("scroll-menu");

@@ -155,9 +155,10 @@ body,
   height: 25px;
   padding: 0 25px 0 15px;
   color: #f5f5f7;
-  background: #ef2525;
+  background: #a62626;
   font-size: 14px;
   border-radius: 5px 5px 0 0;
+  font-weight: 700;
 }
 
 .image-gallery-div p {
@@ -206,6 +207,15 @@ body,
   font-size: 16px;
   background: #1d1d1f;
   color: #f5f5f7;
+}
+
+.footer div {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #f5f5f7;
+  padding: 10px;
 }
 
 /* APPLYING MEDIA QUERIES */
