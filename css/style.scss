@@ -1,0 +1,233 @@
+@import "./variables";
+
+/* UTILITIES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+// WHITE BACKGROUND
+body,
+.first-section {
+    @include text-bg-black-white;
+}
+
+// BLACK BACKGROUND
+.navbar,
+.featured-hats {
+    @include text-bg-white-black;
+}
+
+
+/* HIDING ELEMENTS */
+
+.hamburger,
+.shopping-cart {
+    @include no-display;
+}
+
+/* NAVBAR STYLING STARTS */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.nav-links a {
+    color: $eifans-white;
+}
+
+/* STICKY NAVBAR DESKTOP */
+.sticky {
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+
+/* LOGO */
+.logo-img {
+    width: 150px;
+    height: 60px;
+}
+
+/* NAVBAR MENU */
+.menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+
+    li:hover {
+        background: $hover-white;
+        border-radius: 5px;
+        transition: 0.3s ease;
+    }
+
+    li {
+        padding: 5px 14px;
+    }
+}
+
+.main-header {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.secondary-headers {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 16px;
+    font-family: cursive;
+}
+
+.featured-hats {
+    margin: 20px 0;
+}
+
+.featured-hats-header {
+    text-align: center;
+    padding: 10px;
+}
+
+/* ROWS AND COLUMNS */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FOUR EQUAL COLUMNS */
+.column {
+    flex: 25%;
+    max-width: 20%;
+    padding: 0 4px;
+
+    img {
+        margin-top: 5px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+}
+
+.image-gallery-div {
+    text-align: center;
+    position: relative;
+    margin: 10px;
+    margin-top: 30px;
+    border-radius: 5px;
+    background: $eifans-white-2;
+
+    .pricetag {
+        white-space: nowrap;
+        position: absolute;
+        left: 55%;
+        margin: 0 5px 0 10px;
+        display: block;
+        height: 25px;
+        border-radius: 0 5px 5px 0;
+        padding: 0 25px 0 15px;
+        background: #E8EDF0;
+        border: 0 solid #C7D2D4;
+        border-top-width: 1px;
+        border-bottom-width: 1px;
+        color: $eifans-white;
+        background: red;
+        line-height: 23px;
+        font-size: 14px;
+    }
+
+    .pricetag:after {
+        position: absolute;
+        right: 0;
+        margin: 1px 7px;
+        font-weight: bold;
+        font-size: 19px;
+        content: "\00D7";
+    }
+
+    .pricetag:before {
+        position: absolute;
+        content: "\25CF";
+        color: white;
+        text-shadow: 0 0 1px #333;
+        font-size: 11px;
+        line-height: 0px;
+        text-indent: 12px;
+        left: -15px;
+        width: 1px;
+        height: 0px;
+        border-right: 14px solid #E8EDF0;
+        border-top: 13px solid transparent;
+        border-bottom: 13px solid transparent;
+    }
+
+    p {
+        font-size: 16px;
+        font-family: cursive;
+        text-align: center;
+        padding: 10px;
+    }
+
+    button {
+        background: #f6dfdf;
+        border-radius: 5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+
+}
+
+/* HORIZONTAL IMAGE SCROLL */
+.scroll-menu {
+    width: 95%;
+    height: 65vh;
+    overflow-x: scroll;
+    white-space: nowrap;
+    border-bottom: 2px solid $eifans-black;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll-menu::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scroll-menu {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scroll-menu .image-gallery-div {
+    display: inline-block;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-family: cursive;
+    background: $eifans-black;
+    color: $eifans-white;
+}
+
+// IMPORT RESPONSIVE AT THE END
+@import "./responsive";
