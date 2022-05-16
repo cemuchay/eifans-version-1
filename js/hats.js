@@ -58,7 +58,10 @@ while (i < 3) {
 }
 checkOut.addEventListener("click", function () {
     // window.location.href = "./checkout.html";
-    firstSection.textContent = 'CheckOut Page';
+    alert('coming soon');
+});
+checkOutMobile.addEventListener("click", function () {
+    alert('coming soon');
 });
 var x = 0;
 document.querySelectorAll(".btn").forEach(function (btn) {

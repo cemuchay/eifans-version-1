@@ -77,7 +77,11 @@ while (i < 3) {
 
 checkOut.addEventListener("click", () => {
     // window.location.href = "./checkout.html";
-    firstSection.textContent = 'CheckOut Page';
+    alert('coming soon')
+})
+
+checkOutMobile.addEventListener("click", () => {
+    alert('coming soon')
 })
 
 var x = 0;
