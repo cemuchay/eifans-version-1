@@ -1,4 +1,4 @@
-var firstSection = $(".first-section");
+var firstSection = document.querySelector(".first-section");
 var hatSection = document.createElement("div");
 var hatDetails = {
     name: '500',

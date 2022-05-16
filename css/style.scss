@@ -53,7 +53,7 @@ body,
 
 /* STICKY NAVBAR DESKTOP */
 .sticky {
-    position: relative;
+    position: sticky;
     top: 0;
     width: 100%;
 }
@@ -78,6 +78,12 @@ body,
 
     li {
         padding: 5px 14px;
+    }
+
+    .active {
+        background: $hover-white;
+        border-radius: 5px;
+        transition: 0.3s ease;
     }
 }
 
@@ -127,55 +133,21 @@ body,
 
 .image-gallery-div {
     text-align: center;
-    position: relative;
     margin: 10px;
     margin-top: 30px;
     border-radius: 5px;
     background: $eifans-white-2;
 
     .pricetag {
-        white-space: nowrap;
-        position: absolute;
-        left: 55%;
-        margin: 0 5px 0 10px;
         display: block;
         height: 25px;
-        border-radius: 0 5px 5px 0;
         padding: 0 25px 0 15px;
-        background: #E8EDF0;
-        border: 0 solid #C7D2D4;
-        border-top-width: 1px;
-        border-bottom-width: 1px;
         color: $eifans-white;
-        background: red;
-        line-height: 23px;
+        background: hsl(0, 86%, 54%);
         font-size: 14px;
+        border-radius: 5px 5px 0 0;
     }
 
-    .pricetag:after {
-        position: absolute;
-        right: 0;
-        margin: 1px 7px;
-        font-weight: bold;
-        font-size: 19px;
-        content: "\00D7";
-    }
-
-    .pricetag:before {
-        position: absolute;
-        content: "\25CF";
-        color: white;
-        text-shadow: 0 0 1px #333;
-        font-size: 11px;
-        line-height: 0px;
-        text-indent: 12px;
-        left: -15px;
-        width: 1px;
-        height: 0px;
-        border-right: 14px solid #E8EDF0;
-        border-top: 13px solid transparent;
-        border-bottom: 13px solid transparent;
-    }
 
     p {
         font-size: 16px;

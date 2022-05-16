@@ -1,4 +1,4 @@
-const firstSection = $(".first-section")
+const firstSection = document.querySelector(".first-section")
 const hatSection = document.createElement("div");
 const hatDetails = {
     name: '500',
@@ -25,7 +25,7 @@ while (i < 4) {
     // add id to scrollMenu
     scrollMenu.setAttribute("id", `${i}`);
     // show id of scrollMenu in variable
-    let scrollMenuId = scrollMenu.getAttribute("id");
+    let scrollMenuId: any = scrollMenu.getAttribute("id");
 
     //    create six divs in scrollMenu
     for (let j = 1; j < 7; j++) {
