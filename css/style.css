@@ -99,7 +99,7 @@ body,
 .secondary-headers {
   margin-top: 25px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .featured-hats {
@@ -162,7 +162,6 @@ body,
 
 .image-gallery-div p {
   font-size: 16px;
-  font-family: cursive;
   text-align: center;
   padding: 10px;
 }
@@ -205,7 +204,6 @@ body,
   text-align: center;
   padding: 10px;
   font-size: 16px;
-  font-family: cursive;
   background: #1d1d1f;
   color: #f5f5f7;
 }
