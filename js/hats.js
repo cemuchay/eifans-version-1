@@ -7,6 +7,7 @@ var hatDetails = {
         [500, 600, 600, 700, 70000, 100000, 100000, 100000]]
 };
 var checkOut = document.querySelector(".shopping-cart-list-icon");
+var checkOutMobile = document.querySelector(".shopping-cart");
 // add class row to hatSection
 hatSection.classList.add("row");
 var i = 1;
@@ -62,11 +63,16 @@ checkOut.addEventListener("click", function () {
 var x = 0;
 document.querySelectorAll(".btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
-        btn.textContent = "Added to Cart";
-        btn.className = "btn btn-success";
-        x += 1;
-        console.log(x);
-        checkOut.setAttribute("value", "".concat(x));
+        if (btn.textContent === "Added to Cart") {
+            return;
+        }
+        else {
+            btn.textContent = "Added to Cart";
+            btn.className = "btn btn-success";
+            x += 1;
+            checkOut.setAttribute("value", "".concat(x));
+            checkOutMobile.setAttribute("value", "".concat(x));
+        }
     });
 });
 //# sourceMappingURL=hats.js.map

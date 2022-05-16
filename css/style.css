@@ -50,6 +50,18 @@ body,
   color: #f5f5f7;
 }
 
+.nav-links .badge:after {
+  content: attr(value);
+  font-size: 14px;
+  background: #a62626;
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+  left: -5px;
+  top: -10px;
+  opacity: 0.9;
+}
+
 /* STICKY NAVBAR DESKTOP */
 .sticky {
   position: -webkit-sticky;

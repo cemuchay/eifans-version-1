@@ -7,6 +7,7 @@ const hatDetails = {
     [500, 600, 600, 700, 70000, 100000, 100000, 100000]]
 };
 const checkOut = document.querySelector(".shopping-cart-list-icon");
+const checkOutMobile = document.querySelector(".shopping-cart");
 
 // add class row to hatSection
 hatSection.classList.add("row");
@@ -83,11 +84,18 @@ var x = 0;
 
 document.querySelectorAll<HTMLElement>(".btn").forEach(btn => {
     btn.addEventListener("click", () => {
-        btn.textContent = "Added to Cart";
-        btn.className = "btn btn-success";
-        x += 1;
-        console.log(x);
-        checkOut.setAttribute("value", `${x}`);
+
+        if (btn.textContent === "Added to Cart") {
+            return;
+        }
+        else {
+            btn.textContent = "Added to Cart";
+            btn.className = "btn btn-success";
+            x += 1;
+
+            checkOut.setAttribute("value", `${x}`);
+            checkOutMobile.setAttribute("value", `${x}`);
+        }
     })
 })
 
