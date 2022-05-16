@@ -85,14 +85,13 @@ checkOutMobile.addEventListener("click", () => {
 
 let x = 0;
 
-let myNotefromJSON = localStorage.getItem("noteJSON");
-let myNote = JSON.parse(myNotefromJSON);
+let myCartfromJSON = localStorage.getItem("cartJSON");
+let myItems = JSON.parse(myCartfromJSON);
 
-x = myNote.title;
+x = myItems.number;
 
 checkOut.setAttribute("value", `${x}`);
 checkOutMobile.setAttribute("value", `${x}`);
-console.log(x);
 
 
 
@@ -107,18 +106,17 @@ document.querySelectorAll<HTMLElement>(".btn").forEach(btn => {
             btn.className = "btn btn-success";
             x += 1;
 
-            let note = { title: x };
-            let myNoteJSON = JSON.stringify(note);
-            localStorage.setItem("noteJSON", myNoteJSON)
+            let cartItems = { number: x };
+            let myCartJSON = JSON.stringify(cartItems);
+            localStorage.setItem("cartJSON", myCartJSON);
 
 
-            let myNotefromJSON = localStorage.getItem("noteJSON");
-            let myNote = JSON.parse(myNotefromJSON);
-            console.log(myNote);
+            let myCartfromJSON = localStorage.getItem("cartJSON");
+            let myItems = JSON.parse(myCartfromJSON);
 
 
-            checkOut.setAttribute("value", `${myNote.title}`);
-            checkOutMobile.setAttribute("value", `${myNote.title}`);
+            checkOut.setAttribute("value", `${myItems.number}`);
+            checkOutMobile.setAttribute("value", `${myItems.number}`);
 
 
             // // ADD ITEM DETAILS TO CART

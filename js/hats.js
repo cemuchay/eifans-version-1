@@ -63,12 +63,11 @@ checkOutMobile.addEventListener("click", function () {
     window.location.href = "./cart.html";
 });
 var x = 0;
-var myNotefromJSON = localStorage.getItem("noteJSON");
-var myNote = JSON.parse(myNotefromJSON);
-x = myNote.title;
+var myCartfromJSON = localStorage.getItem("cartJSON");
+var myItems = JSON.parse(myCartfromJSON);
+x = myItems.number;
 checkOut.setAttribute("value", "".concat(x));
 checkOutMobile.setAttribute("value", "".concat(x));
-console.log(x);
 document.querySelectorAll(".btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
         if (btn.textContent === "Added to Cart") {
@@ -78,14 +77,13 @@ document.querySelectorAll(".btn").forEach(function (btn) {
             btn.textContent = "Added to Cart";
             btn.className = "btn btn-success";
             x += 1;
-            var note = { title: x };
-            var myNoteJSON = JSON.stringify(note);
-            localStorage.setItem("noteJSON", myNoteJSON);
-            var myNotefromJSON_1 = localStorage.getItem("noteJSON");
-            var myNote_1 = JSON.parse(myNotefromJSON_1);
-            console.log(myNote_1);
-            checkOut.setAttribute("value", "".concat(myNote_1.title));
-            checkOutMobile.setAttribute("value", "".concat(myNote_1.title));
+            var cartItems = { number: x };
+            var myCartJSON = JSON.stringify(cartItems);
+            localStorage.setItem("cartJSON", myCartJSON);
+            var myCartfromJSON_1 = localStorage.getItem("cartJSON");
+            var myItems_1 = JSON.parse(myCartfromJSON_1);
+            checkOut.setAttribute("value", "".concat(myItems_1.number));
+            checkOutMobile.setAttribute("value", "".concat(myItems_1.number));
             // // ADD ITEM DETAILS TO CART
             // let cartItem = document.createElement("div");
             // cartItem.classList.add("cart-item");
