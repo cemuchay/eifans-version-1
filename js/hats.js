@@ -65,7 +65,12 @@ checkOutMobile.addEventListener("click", function () {
 var x = 0;
 var myCartfromJSON = localStorage.getItem("cartJSON");
 var myItems = JSON.parse(myCartfromJSON);
-x = myItems.number;
+if (myItems == null) {
+    myItems = [];
+}
+else {
+    x = myItems.number;
+}
 checkOut.setAttribute("value", "".concat(x));
 checkOutMobile.setAttribute("value", "".concat(x));
 document.querySelectorAll(".btn").forEach(function (btn) {

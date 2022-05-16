@@ -88,7 +88,12 @@ let x = 0;
 let myCartfromJSON = localStorage.getItem("cartJSON");
 let myItems = JSON.parse(myCartfromJSON);
 
-x = myItems.number;
+if (myItems == null) {
+    myItems = [];
+}
+else {
+    x = myItems.number;
+}
 
 checkOut.setAttribute("value", `${x}`);
 checkOutMobile.setAttribute("value", `${x}`);
