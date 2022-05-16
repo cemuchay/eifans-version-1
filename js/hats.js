@@ -1,11 +1,12 @@
 var firstSection = document.querySelector(".first-section");
 var hatSection = document.createElement("div");
 var hatDetails = {
-    name: '500',
+    name: 'lorem ipsum',
     price: [[5000, 3000, 3500, 1500, 5000, 2000, 2000, 8000],
         [5000, 3000, 3500, 1500, 5000, 2000, 2000, 8000],
         [500, 600, 600, 700, 70000, 100000, 100000, 100000]]
 };
+var checkOut = document.querySelector(".shopping-cart-list-icon");
 // add class row to hatSection
 hatSection.classList.add("row");
 var i = 1;
@@ -41,7 +42,7 @@ while (i < 3) {
         hatImg.alt = "hat display item ".concat(j, ";");
         // hatImg.classList.add("img");
         // add text to hatSection
-        hatDescription.textContent = "hat".concat(j);
+        hatDescription.textContent = "hat".concat(j, " is a ").concat(hatDetails.name);
         hatPrice.textContent = "NGN ".concat(hatDetails.price[scrollMenuId - 1][j - 1]);
         hatAddToCart.textContent = "Add to Cart";
         hatAddToCart.classList.add("btn");
@@ -54,4 +55,18 @@ while (i < 3) {
     }
     i++;
 }
+checkOut.addEventListener("click", function () {
+    // window.location.href = "./checkout.html";
+    firstSection.textContent = 'CheckOut Page';
+});
+var x = 0;
+document.querySelectorAll(".btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        btn.textContent = "Added to Cart";
+        btn.className = "btn btn-success";
+        x += 1;
+        console.log(x);
+        checkOut.setAttribute("value", "".concat(x));
+    });
+});
 //# sourceMappingURL=hats.js.map

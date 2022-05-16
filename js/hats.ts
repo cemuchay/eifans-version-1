@@ -1,11 +1,12 @@
 const firstSection = document.querySelector(".first-section")
 const hatSection = document.createElement("div");
 const hatDetails = {
-    name: '500',
+    name: 'lorem ipsum',
     price: [[5000, 3000, 3500, 1500, 5000, 2000, 2000, 8000],
     [5000, 3000, 3500, 1500, 5000, 2000, 2000, 8000],
     [500, 600, 600, 700, 70000, 100000, 100000, 100000]]
 };
+const checkOut = document.querySelector(".shopping-cart-list-icon");
 
 // add class row to hatSection
 hatSection.classList.add("row");
@@ -51,7 +52,7 @@ while (i < 3) {
         // hatImg.classList.add("img");
         // add text to hatSection
 
-        hatDescription.textContent = `hat${j}`;
+        hatDescription.textContent = `hat${j} is a ${hatDetails.name}`;
 
         hatPrice.textContent = `NGN ${hatDetails.price[scrollMenuId - 1][j - 1]}`;
 
@@ -72,3 +73,21 @@ while (i < 3) {
 
     i++;
 }
+
+checkOut.addEventListener("click", () => {
+    // window.location.href = "./checkout.html";
+    firstSection.textContent = 'CheckOut Page';
+})
+
+var x = 0;
+
+document.querySelectorAll<HTMLElement>(".btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.textContent = "Added to Cart";
+        btn.className = "btn btn-success";
+        x += 1;
+        console.log(x);
+        checkOut.setAttribute("value", `${x}`);
+    })
+})
+
