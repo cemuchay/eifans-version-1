@@ -14,7 +14,8 @@ hatSection.classList.add("row");
 let i = 1;
 
 
-//create element div while i is less than 3 and add class scroll-menu and assign each a variable
+// CREATE ELEMENT DIV WHILE I IS LESS THAN 3 AND ADD CLASS SCROLL-MENU AND ASSIGN EACH A VARIABLE
+
 while (i < 3) {
     // SCROLL MENU
     let scrollMenu = document.createElement("div");
@@ -50,6 +51,10 @@ while (i < 3) {
         //set alt of hatImg
         hatImg.alt = `hat display item ${j};`
 
+        // set id of hatImg
+        imageGalleryDiv.setAttribute("id", `${scrollMenuId}-${j}`);
+
+
         // hatImg.classList.add("img");
         // add text to hatSection
 
@@ -75,6 +80,8 @@ while (i < 3) {
     i++;
 }
 
+// EVENT LISTENER FOR CART ICON
+
 checkOut.addEventListener("click", () => {
     window.location.href = "./cart.html";
 })
@@ -83,20 +90,45 @@ checkOutMobile.addEventListener("click", () => {
     window.location.href = "./cart.html";
 })
 
-let x = 0;
+// GETTING STORED DATA ABOUT ITEMS IN CART FROM LOCAL STORAGE
 
 let myCartfromJSON = localStorage.getItem("cartJSON");
 let myItems = JSON.parse(myCartfromJSON);
+
 
 if (myItems == null) {
     myItems = [];
 }
 else {
-    x = myItems.number;
+    myItems.length;
 }
 
-checkOut.setAttribute("value", `${x}`);
-checkOutMobile.setAttribute("value", `${x}`);
+let cartItems = myItems;
+
+
+// split cartItems object into array
+let cartItemsArray = Object.keys(cartItems).map((key) => {
+    return cartItems[key];
+});
+
+
+// if id of imageGalleryDiv is in cartItemsArray, don't add to cart
+let imageGalleryDiv = document.querySelectorAll(".image-gallery-div");
+
+
+for (let i = 0; i < imageGalleryDiv.length; i++) {
+    let imageGalleryDivId = imageGalleryDiv[i].getAttribute("id");
+    if (cartItemsArray.includes(imageGalleryDivId)) {
+
+        // add text to button
+        imageGalleryDiv[i].querySelector("button").textContent = "Added to Cart";
+        imageGalleryDiv[i].querySelector("button").className = "btn btn-success";
+    }
+}
+
+
+checkOut.setAttribute("value", `${myItems.length}`);
+checkOutMobile.setAttribute("value", `${myItems.length}`);
 
 
 
@@ -109,9 +141,8 @@ document.querySelectorAll<HTMLElement>(".btn").forEach(btn => {
         else {
             btn.textContent = "Added to Cart";
             btn.className = "btn btn-success";
-            x += 1;
 
-            let cartItems = { number: x };
+            cartItems.push(btn.parentElement.id);
             let myCartJSON = JSON.stringify(cartItems);
             localStorage.setItem("cartJSON", myCartJSON);
 
@@ -120,39 +151,11 @@ document.querySelectorAll<HTMLElement>(".btn").forEach(btn => {
             let myItems = JSON.parse(myCartfromJSON);
 
 
-            checkOut.setAttribute("value", `${myItems.number}`);
-            checkOutMobile.setAttribute("value", `${myItems.number}`);
+            checkOut.setAttribute("value", `${myItems.length}`);
+            checkOutMobile.setAttribute("value", `${myItems.length}`);
 
-
-            // // ADD ITEM DETAILS TO CART
-            // let cartItem = document.createElement("div");
-            // cartItem.classList.add("cart-item");
-            // let cartItemImg = document.createElement("img");
-            // let cartItemName = document.createElement("p");
-            // let cartItemPrice = document.createElement("p");
-            // let cartItemQuantity = document.createElement("p");
-            // let cartItemRemove = document.createElement("button");
-            // cartItemImg.src = `./images/gallery/display-1-${btn.parentElement.id}.jpg`;
-            // cartItemImg.alt = `hat display item ${btn.parentElement.id};`;
-            // cartItemName.textContent = `hat${btn.parentElement.id} is a ${hatDetails.name}`;
-            // // cartItemPrice.textContent = `NGN ${hatDetails.price[btn.parentElement.id - 1][btn.parentElement.id - 1]}`;
-            // cartItemQuantity.textContent = `Quantity: 1`;
-            // cartItemRemove.textContent = "Remove";
-            // cartItemRemove.classList.add("btn");
-            // cartItem.append(cartItemImg, cartItemName, cartItemPrice, cartItemQuantity, cartItemRemove);
-            // firstSection.append(cartItem);
-
-            // // REMOVE ITEM FROM CART
-            // cartItemRemove.addEventListener("click", () => {
-            //     cartItem.remove();
-            //     x -= 1;
-            //     checkOut.setAttribute("value", `${x}`);
-            //     checkOutMobile.setAttribute("value", `${x}`);
-            // })
 
         }
     })
 })
-
-
 
