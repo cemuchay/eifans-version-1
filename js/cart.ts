@@ -107,6 +107,17 @@ let checkoutPage = document.querySelector("#checkoutPage");
 
 for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
+    let reset = document.createElement("button");
+
+    reset.innerHTML = "Reset";
+
+    reset.addEventListener("click", function () {
+        localStorage.clear();
+        location.reload();
+    });
+
+    checkoutPage.appendChild(reset);
+
     let checkoutPageItem = document.createElement("div");
     checkoutPage.append(checkoutPageItem);
 
