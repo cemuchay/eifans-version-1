@@ -1,5 +1,7 @@
 let myCartfromJSONa = localStorage.getItem("cartJSON");
 let myItemsa = JSON.parse(myCartfromJSONa);
+let checkoutPage = document.querySelector("#checkoutPage");
+
 
 const hatDetailsa = [
     {
@@ -83,6 +85,17 @@ const hatDetailsa = [
     }
 ]
 
+let reset = document.createElement("button");
+
+reset.innerHTML = "Reset";
+
+reset.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+
+checkoutPage.append(reset);
+
 // for id of objects in myItemsa build checkout page
 
 // make myitemsa into an array
@@ -103,20 +116,9 @@ for (let i = 0; i < myItemsArray.length; i++) {
 }
 
 //get data from myitemsarraywithdetails and build checkout page
-let checkoutPage = document.querySelector("#checkoutPage");
 
 for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
-    let reset = document.createElement("button");
-
-    reset.innerHTML = "Reset";
-
-    reset.addEventListener("click", function () {
-        localStorage.clear();
-        location.reload();
-    });
-
-    checkoutPage.appendChild(reset);
 
     let checkoutPageItem = document.createElement("div");
     checkoutPage.append(checkoutPageItem);

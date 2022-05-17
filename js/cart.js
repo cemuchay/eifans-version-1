@@ -1,5 +1,6 @@
 var myCartfromJSONa = localStorage.getItem("cartJSON");
 var myItemsa = JSON.parse(myCartfromJSONa);
+var checkoutPage = document.querySelector("#checkoutPage");
 var hatDetailsa = [
     {
         name: "hat1",
@@ -80,6 +81,13 @@ var hatDetailsa = [
         description: "hat13 description"
     }
 ];
+var reset = document.createElement("button");
+reset.innerHTML = "Reset";
+reset.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+checkoutPage.append(reset);
 // for id of objects in myItemsa build checkout page
 // make myitemsa into an array
 var myItemsArray = [];
@@ -97,15 +105,7 @@ for (var i_2 = 0; i_2 < myItemsArray.length; i_2++) {
     }
 }
 //get data from myitemsarraywithdetails and build checkout page
-var checkoutPage = document.querySelector("#checkoutPage");
 for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
-    var reset = document.createElement("button");
-    reset.innerHTML = "Reset";
-    reset.addEventListener("click", function () {
-        localStorage.clear();
-        location.reload();
-    });
-    checkoutPage.appendChild(reset);
     var checkoutPageItem = document.createElement("div");
     checkoutPage.append(checkoutPageItem);
     var checkoutPageItemImg = document.createElement("img");
