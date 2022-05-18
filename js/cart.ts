@@ -108,7 +108,7 @@ for (let i = 0; i < myItemsa.length; i++) {
 let myItemsArrayWithDetails = [];
 for (let i = 0; i < myItemsArray.length; i++) {
     for (let j = 0; j < hatDetailsa.length; j++) {
-        console.log(myItemsArray[i]);
+
         if (myItemsArray[i] === hatDetailsa[j].name) {
             myItemsArrayWithDetails.push(hatDetailsa[j]);
         }
@@ -116,18 +116,45 @@ for (let i = 0; i < myItemsArray.length; i++) {
 }
 
 //get data from myitemsarraywithdetails and build checkout page
+let total = 0
 
 for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
 
     let checkoutPageItem = document.createElement("div");
+    checkoutPageItem.className = 'checkout-div'
     checkoutPage.append(checkoutPageItem);
 
 
     let checkoutPageItemImg = document.createElement("img");
 
+    let checkoutPageItemCointainer = document.createElement("div")
+
+    let checkoutPageItemName = document.createElement('p')
+
+    let checkoutPageItemPrice = document.createElement('p')
+
     checkoutPageItemImg.src = `./images/gallery/${myItemsArrayWithDetails[i].img}`;
-    checkoutPageItem.append(checkoutPageItemImg);
+    checkoutPageItemName.textContent = `Product: ${myItemsArrayWithDetails[i].name}`
+    checkoutPageItemPrice.textContent = `Price: ${myItemsArrayWithDetails[i].price}`
+
+    total += parseFloat(myItemsArrayWithDetails[i].price)
+
+    console.log(total)
+
+    checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
+
+    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice)
+
 
 }
+
+// function to add two numbers
+
+
+
+
+
+
+
 

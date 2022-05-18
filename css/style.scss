@@ -217,6 +217,26 @@ body,
     display: inline-block;
 }
 
+.checkout-div {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    background: $eifans-white-2;
+
+    img {
+        max-height: 130px;
+    }
+
+    p {
+        display: block;
+    }
+}
+
 .footer {
     text-align: center;
     padding: 10px;

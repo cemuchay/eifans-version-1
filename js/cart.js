@@ -98,18 +98,28 @@ for (var i_1 = 0; i_1 < myItemsa.length; i_1++) {
 var myItemsArrayWithDetails = [];
 for (var i_2 = 0; i_2 < myItemsArray.length; i_2++) {
     for (var j = 0; j < hatDetailsa.length; j++) {
-        console.log(myItemsArray[i_2]);
         if (myItemsArray[i_2] === hatDetailsa[j].name) {
             myItemsArrayWithDetails.push(hatDetailsa[j]);
         }
     }
 }
 //get data from myitemsarraywithdetails and build checkout page
+var total = 0;
 for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     var checkoutPageItem = document.createElement("div");
+    checkoutPageItem.className = 'checkout-div';
     checkoutPage.append(checkoutPageItem);
     var checkoutPageItemImg = document.createElement("img");
+    var checkoutPageItemCointainer = document.createElement("div");
+    var checkoutPageItemName = document.createElement('p');
+    var checkoutPageItemPrice = document.createElement('p');
     checkoutPageItemImg.src = "./images/gallery/".concat(myItemsArrayWithDetails[i_3].img);
-    checkoutPageItem.append(checkoutPageItemImg);
+    checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);
+    checkoutPageItemPrice.textContent = "Price: ".concat(myItemsArrayWithDetails[i_3].price);
+    total += parseFloat(myItemsArrayWithDetails[i_3].price);
+    console.log(total);
+    checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
+    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice);
 }
+// function to add two numbers
 //# sourceMappingURL=cart.js.map
