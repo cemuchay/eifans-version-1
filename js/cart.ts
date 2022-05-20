@@ -144,8 +144,6 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
     total += parseFloat(myItemsArrayWithDetails[i].price)
 
-    console.log(total)
-
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
 
     checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice)

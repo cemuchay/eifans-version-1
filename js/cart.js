@@ -120,7 +120,6 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);
     checkoutPageItemPrice.textContent = "Price: ".concat(myItemsArrayWithDetails[i_3].price);
     total += parseFloat(myItemsArrayWithDetails[i_3].price);
-    console.log(total);
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
     checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice);
 }

@@ -347,11 +347,9 @@ body,
     height: -webkit-min-content;
     height: -moz-min-content;
     height: min-content;
-    margin-right: auto;
-    margin-left: auto;
   }
   .checkout-div img {
-    max-height: 70px;
+    max-height: 90px;
   }
 }
 
