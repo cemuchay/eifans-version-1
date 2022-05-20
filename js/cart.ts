@@ -85,18 +85,22 @@ const hatDetailsa = [
     }
 ]
 
-let reset = document.createElement("button");
+const reset = document.createElement("button");
 
-reset.innerHTML = "Reset";
+reset.textContent = "Reset";
 
-reset.addEventListener("click", function () {
-    localStorage.clear();
+reset.addEventListener("click", () => {
+    // make cartJSON empty array
+    let cartJSON = [];
+    // set cartJSON to localStorage
+    localStorage.setItem("cartJSON", JSON.stringify(cartJSON));
+    // reload page
     location.reload();
+
 });
 
 checkoutPage.append(reset);
 
-// for id of objects in myItemsa build checkout page
 
 // make myitemsa into an array
 let myItemsArray = [];
@@ -105,7 +109,7 @@ for (let i = 0; i < myItemsa.length; i++) {
 }
 
 // for each item in myItemsArray, find the matching object with name in hatDetailsa
-let myItemsArrayWithDetails = [];
+const myItemsArrayWithDetails = [];
 for (let i = 0; i < myItemsArray.length; i++) {
     for (let j = 0; j < hatDetailsa.length; j++) {
 
@@ -121,7 +125,7 @@ let total = 0
 for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
 
-    let checkoutPageItem = document.createElement("div");
+    let checkoutPageItem = document.createElement("article");
     checkoutPageItem.className = 'checkout-div'
     checkoutPage.append(checkoutPageItem);
 
@@ -130,7 +134,7 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
     let checkoutPageItemCointainer = document.createElement("div")
 
-    let checkoutPageItemName = document.createElement('p')
+    let checkoutPageItemName = document.createElement('h3');
 
     let checkoutPageItemPrice = document.createElement('p')
 

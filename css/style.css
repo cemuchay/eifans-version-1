@@ -231,18 +231,16 @@ body,
 }
 
 .checkout-div {
-  height: 150px;
+  height: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   margin: 5px;
-  width: 75%;
+  width: 50%;
   margin-right: auto;
   margin-left: auto;
   background: #d9d9dd;
@@ -252,8 +250,9 @@ body,
   max-height: 130px;
 }
 
+.checkout-div h3,
 .checkout-div p {
-  display: block;
+  padding-left: 20px;
 }
 
 .footer {
@@ -342,6 +341,17 @@ body,
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
+  }
+  .checkout-div {
+    width: 75%;
+    height: -webkit-min-content;
+    height: -moz-min-content;
+    height: min-content;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .checkout-div img {
+    max-height: 70px;
   }
 }
 

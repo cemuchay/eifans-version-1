@@ -82,13 +82,16 @@ var hatDetailsa = [
     }
 ];
 var reset = document.createElement("button");
-reset.innerHTML = "Reset";
+reset.textContent = "Reset";
 reset.addEventListener("click", function () {
-    localStorage.clear();
+    // make cartJSON empty array
+    var cartJSON = [];
+    // set cartJSON to localStorage
+    localStorage.setItem("cartJSON", JSON.stringify(cartJSON));
+    // reload page
     location.reload();
 });
 checkoutPage.append(reset);
-// for id of objects in myItemsa build checkout page
 // make myitemsa into an array
 var myItemsArray = [];
 for (var i_1 = 0; i_1 < myItemsa.length; i_1++) {
@@ -106,12 +109,12 @@ for (var i_2 = 0; i_2 < myItemsArray.length; i_2++) {
 //get data from myitemsarraywithdetails and build checkout page
 var total = 0;
 for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
-    var checkoutPageItem = document.createElement("div");
+    var checkoutPageItem = document.createElement("article");
     checkoutPageItem.className = 'checkout-div';
     checkoutPage.append(checkoutPageItem);
     var checkoutPageItemImg = document.createElement("img");
     var checkoutPageItemCointainer = document.createElement("div");
-    var checkoutPageItemName = document.createElement('p');
+    var checkoutPageItemName = document.createElement('h3');
     var checkoutPageItemPrice = document.createElement('p');
     checkoutPageItemImg.src = "./images/gallery/".concat(myItemsArrayWithDetails[i_3].img);
     checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);

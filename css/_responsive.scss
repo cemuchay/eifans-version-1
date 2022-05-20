@@ -78,6 +78,17 @@
     .scroll-menu {
         height: max-content;
     }
+
+    .checkout-div {
+        width: 75%;
+        height: min-content;
+        margin-right: auto;
+        margin-left: auto;
+
+        img {
+            max-height: 70px;
+        }
+    }
 }
 
 /* Responsive layout - makes a two column-layout instead of four columns */

@@ -218,12 +218,11 @@ body,
 }
 
 .checkout-div {
-    height: 150px;
+    height: 130px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
     margin: 5px;
-    width: 75%;
+    width: 50%;
     margin-right: auto;
     margin-left: auto;
     background: $eifans-white-2;
@@ -232,9 +231,11 @@ body,
         max-height: 130px;
     }
 
+    h3,
     p {
-        display: block;
+        padding-left: 20px;
     }
+
 }
 
 .footer {
