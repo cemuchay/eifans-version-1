@@ -148,9 +148,10 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
     const checkoutPageItemTotal = document.createElement('span');
 
 
+
     checkoutPageItemImg.src = `./images/gallery/${myItemsArrayWithDetails[i].img}`;
     checkoutPageItemName.textContent = `Product: ${myItemsArrayWithDetails[i].name}`
-    checkoutPageItemPrice.textContent = `Unit Price: ${myItemsArrayWithDetails[i].price}`
+    checkoutPageItemPrice.textContent = myItemsArrayWithDetails[i].price
     checkoutPageItemRemove.textContent = "-";
     checkOutPageItemQty.textContent = "1";
     checkOutPageItemAdd.textContent = "+";
@@ -173,9 +174,16 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
 document.querySelectorAll(".plusminus-btn").forEach(btn => {
     btn.addEventListener("click", () => {
+        let unitPrice = parseFloat(btn.parentElement.children[1].textContent)
+
         if (btn.textContent === "+") {
             let prevQty = parseInt(btn.previousElementSibling.textContent)
             prevQty++;
+
+            total += unitPrice;
+            document.querySelector(".sub-total").innerHTML = `Subtotal:  &#8358; ${total}`;
+            btn.parentElement.children[5].innerHTML = `Total: &#8358; ${unitPrice * prevQty}`;
+
             btn.previousElementSibling.textContent = prevQty.toString();
         } else {
             if (btn.nextElementSibling.textContent === "1") {
@@ -183,10 +191,15 @@ document.querySelectorAll(".plusminus-btn").forEach(btn => {
             } else {
                 let prevQty = parseInt(btn.nextElementSibling.textContent)
                 prevQty--;
+
+                total -= unitPrice;
+                document.querySelector(".sub-total").innerHTML = `Subtotal:  &#8358; ${total}`;
+                btn.parentElement.children[5].innerHTML = `Total: &#8358; ${unitPrice * prevQty}`;
+
+
                 btn.nextElementSibling.textContent = prevQty.toString();
             }
         }
-
 
     })
 })

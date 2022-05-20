@@ -123,7 +123,7 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     var checkoutPageItemTotal = document.createElement('span');
     checkoutPageItemImg.src = "./images/gallery/".concat(myItemsArrayWithDetails[i_3].img);
     checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);
-    checkoutPageItemPrice.textContent = "Unit Price: ".concat(myItemsArrayWithDetails[i_3].price);
+    checkoutPageItemPrice.textContent = myItemsArrayWithDetails[i_3].price;
     checkoutPageItemRemove.textContent = "-";
     checkOutPageItemQty.textContent = "1";
     checkOutPageItemAdd.textContent = "+";
@@ -139,9 +139,13 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
 }
 document.querySelectorAll(".plusminus-btn").forEach(function (btn) {
     btn.addEventListener("click", function () {
+        var unitPrice = parseFloat(btn.parentElement.children[1].textContent);
         if (btn.textContent === "+") {
             var prevQty = parseInt(btn.previousElementSibling.textContent);
             prevQty++;
+            total += unitPrice;
+            document.querySelector(".sub-total").innerHTML = "Subtotal:  &#8358; ".concat(total);
+            btn.parentElement.children[5].innerHTML = "Total: &#8358; ".concat(unitPrice * prevQty);
             btn.previousElementSibling.textContent = prevQty.toString();
         }
         else {
@@ -151,6 +155,9 @@ document.querySelectorAll(".plusminus-btn").forEach(function (btn) {
             else {
                 var prevQty = parseInt(btn.nextElementSibling.textContent);
                 prevQty--;
+                total -= unitPrice;
+                document.querySelector(".sub-total").innerHTML = "Subtotal:  &#8358; ".concat(total);
+                btn.parentElement.children[5].innerHTML = "Total: &#8358; ".concat(unitPrice * prevQty);
                 btn.nextElementSibling.textContent = prevQty.toString();
             }
         }
