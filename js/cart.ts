@@ -1,6 +1,7 @@
 let myCartfromJSONa = localStorage.getItem("cartJSON");
 let myItemsa = JSON.parse(myCartfromJSONa);
 let checkoutPage = document.querySelector("#checkoutPage");
+document.querySelector("#cartNo").innerHTML = `Cart (${myItemsa.length})`;
 
 
 const hatDetailsa = [
@@ -138,11 +139,11 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
     const checkoutPageItemPrice = document.createElement('p')
 
-    const checkOutPageItemAdd = document.createElement('span');
+    const checkOutPageItemAdd = document.createElement('button');
 
     const checkOutPageItemQty = document.createElement('span');
 
-    const checkoutPageItemRemove = document.createElement('span');
+    const checkoutPageItemRemove = document.createElement('button');
 
     const checkoutPageItemTotal = document.createElement('span');
 
@@ -155,7 +156,7 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
     checkOutPageItemAdd.textContent = "+";
     checkOutPageItemAdd.className = "plusminus-btn";
     checkoutPageItemRemove.className = "plusminus-btn";
-    const totalPriceQty = parseInt(myItemsArrayWithDetails[i].price) * parseInt(checkOutPageItemQty.textContent);
+    const totalPriceQty = parseFloat(myItemsArrayWithDetails[i].price) * parseInt(checkOutPageItemQty.textContent);
     checkoutPageItemTotal.innerHTML = `Total:  &#8358; ${totalPriceQty}`;
     checkoutPageItemTotal.className = "total-price";
 
@@ -167,12 +168,28 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
 
     checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice, checkoutPageItemRemove, checkOutPageItemQty, checkOutPageItemAdd, checkoutPageItemTotal);
-
-
 }
 
 
+document.querySelectorAll(".plusminus-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (btn.textContent === "+") {
+            let prevQty = parseInt(btn.previousElementSibling.textContent)
+            prevQty++;
+            btn.previousElementSibling.textContent = prevQty.toString();
+        } else {
+            if (btn.nextElementSibling.textContent === "1") {
+                return
+            } else {
+                let prevQty = parseInt(btn.nextElementSibling.textContent)
+                prevQty--;
+                btn.nextElementSibling.textContent = prevQty.toString();
+            }
+        }
 
+
+    })
+})
 
 
 

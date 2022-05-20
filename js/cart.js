@@ -1,6 +1,7 @@
 var myCartfromJSONa = localStorage.getItem("cartJSON");
 var myItemsa = JSON.parse(myCartfromJSONa);
 var checkoutPage = document.querySelector("#checkoutPage");
+document.querySelector("#cartNo").innerHTML = "Cart (".concat(myItemsa.length, ")");
 var hatDetailsa = [
     {
         name: "hat1",
@@ -116,9 +117,9 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     var checkoutPageItemCointainer = document.createElement("div");
     var checkoutPageItemName = document.createElement('h3');
     var checkoutPageItemPrice = document.createElement('p');
-    var checkOutPageItemAdd = document.createElement('span');
+    var checkOutPageItemAdd = document.createElement('button');
     var checkOutPageItemQty = document.createElement('span');
-    var checkoutPageItemRemove = document.createElement('span');
+    var checkoutPageItemRemove = document.createElement('button');
     var checkoutPageItemTotal = document.createElement('span');
     checkoutPageItemImg.src = "./images/gallery/".concat(myItemsArrayWithDetails[i_3].img);
     checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);
@@ -128,7 +129,7 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     checkOutPageItemAdd.textContent = "+";
     checkOutPageItemAdd.className = "plusminus-btn";
     checkoutPageItemRemove.className = "plusminus-btn";
-    var totalPriceQty = parseInt(myItemsArrayWithDetails[i_3].price) * parseInt(checkOutPageItemQty.textContent);
+    var totalPriceQty = parseFloat(myItemsArrayWithDetails[i_3].price) * parseInt(checkOutPageItemQty.textContent);
     checkoutPageItemTotal.innerHTML = "Total:  &#8358; ".concat(totalPriceQty);
     checkoutPageItemTotal.className = "total-price";
     total += totalPriceQty;
@@ -136,4 +137,23 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
     checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice, checkoutPageItemRemove, checkOutPageItemQty, checkOutPageItemAdd, checkoutPageItemTotal);
 }
+document.querySelectorAll(".plusminus-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+        if (btn.textContent === "+") {
+            var prevQty = parseInt(btn.previousElementSibling.textContent);
+            prevQty++;
+            btn.previousElementSibling.textContent = prevQty.toString();
+        }
+        else {
+            if (btn.nextElementSibling.textContent === "1") {
+                return;
+            }
+            else {
+                var prevQty = parseInt(btn.nextElementSibling.textContent);
+                prevQty--;
+                btn.nextElementSibling.textContent = prevQty.toString();
+            }
+        }
+    });
+});
 //# sourceMappingURL=cart.js.map
