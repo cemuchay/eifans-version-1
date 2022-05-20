@@ -120,7 +120,7 @@ while (i < 3) {
         // hatImg.classList.add("img");
         // add text to hatSection
         hatDescription.textContent = "hat".concat(j, " is a ").concat(hatDetails[j - 1].description);
-        hatPrice.textContent = "NGN ".concat(hatDetails[j - 1].price);
+        hatPrice.innerHTML = "&#8358; ".concat(hatDetails[j - 1].price);
         hatAddToCart.textContent = "Add to Cart";
         hatAddToCart.classList.add("btn");
         //append imageGalleryDiv to scrollMenu

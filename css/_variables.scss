@@ -23,3 +23,8 @@ $block-display: block;
     color: $eifans-white;
     background: $eifans-black;
 }
+
+@mixin marginauto {
+    margin-left: auto;
+    margin-right: auto;
+}

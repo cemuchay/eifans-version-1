@@ -137,7 +137,7 @@ while (i < 3) {
 
         hatDescription.textContent = `hat${j} is a ${hatDetails[j - 1].description}`;
 
-        hatPrice.textContent = `NGN ${hatDetails[j - 1].price}`;
+        hatPrice.innerHTML = `&#8358; ${hatDetails[j - 1].price}`;
 
         hatAddToCart.textContent = "Add to Cart";
         hatAddToCart.classList.add("btn");

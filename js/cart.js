@@ -116,12 +116,23 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     var checkoutPageItemCointainer = document.createElement("div");
     var checkoutPageItemName = document.createElement('h3');
     var checkoutPageItemPrice = document.createElement('p');
+    var checkOutPageItemAdd = document.createElement('span');
+    var checkOutPageItemQty = document.createElement('span');
+    var checkoutPageItemRemove = document.createElement('span');
+    var checkoutPageItemTotal = document.createElement('span');
     checkoutPageItemImg.src = "./images/gallery/".concat(myItemsArrayWithDetails[i_3].img);
     checkoutPageItemName.textContent = "Product: ".concat(myItemsArrayWithDetails[i_3].name);
-    checkoutPageItemPrice.textContent = "Price: ".concat(myItemsArrayWithDetails[i_3].price);
+    checkoutPageItemPrice.textContent = "Unit Price: ".concat(myItemsArrayWithDetails[i_3].price);
+    checkoutPageItemRemove.textContent = "-";
+    checkOutPageItemQty.textContent = "1";
+    checkOutPageItemAdd.textContent = "+";
+    checkOutPageItemAdd.className = "plusminus-btn";
+    checkoutPageItemRemove.className = "plusminus-btn";
+    checkoutPageItemTotal.innerHTML = "Total:  &#8358; ".concat(myItemsArrayWithDetails[i_3].price);
+    checkoutPageItemTotal.className = "total-price";
     total += parseFloat(myItemsArrayWithDetails[i_3].price);
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
-    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice);
+    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice, checkoutPageItemRemove, checkOutPageItemQty, checkOutPageItemAdd, checkoutPageItemTotal);
 }
 // function to add two numbers
 //# sourceMappingURL=cart.js.map

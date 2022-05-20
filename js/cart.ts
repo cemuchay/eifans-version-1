@@ -130,23 +130,40 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
     checkoutPage.append(checkoutPageItem);
 
 
-    let checkoutPageItemImg = document.createElement("img");
+    const checkoutPageItemImg = document.createElement("img");
 
-    let checkoutPageItemCointainer = document.createElement("div")
+    const checkoutPageItemCointainer = document.createElement("div")
 
-    let checkoutPageItemName = document.createElement('h3');
+    const checkoutPageItemName = document.createElement('h3');
 
-    let checkoutPageItemPrice = document.createElement('p')
+    const checkoutPageItemPrice = document.createElement('p')
+
+    const checkOutPageItemAdd = document.createElement('span');
+
+    const checkOutPageItemQty = document.createElement('span');
+
+    const checkoutPageItemRemove = document.createElement('span');
+
+    const checkoutPageItemTotal = document.createElement('span');
+
 
     checkoutPageItemImg.src = `./images/gallery/${myItemsArrayWithDetails[i].img}`;
     checkoutPageItemName.textContent = `Product: ${myItemsArrayWithDetails[i].name}`
-    checkoutPageItemPrice.textContent = `Price: ${myItemsArrayWithDetails[i].price}`
+    checkoutPageItemPrice.textContent = `Unit Price: ${myItemsArrayWithDetails[i].price}`
+    checkoutPageItemRemove.textContent = "-";
+    checkOutPageItemQty.textContent = "1";
+    checkOutPageItemAdd.textContent = "+";
+    checkOutPageItemAdd.className = "plusminus-btn";
+    checkoutPageItemRemove.className = "plusminus-btn";
+    checkoutPageItemTotal.innerHTML = `Total:  &#8358; ${myItemsArrayWithDetails[i].price}`;
+    checkoutPageItemTotal.className = "total-price";
+
 
     total += parseFloat(myItemsArrayWithDetails[i].price)
 
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
 
-    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice)
+    checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice, checkoutPageItemRemove, checkOutPageItemQty, checkOutPageItemAdd, checkoutPageItemTotal);
 
 
 }
