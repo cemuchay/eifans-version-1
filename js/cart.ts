@@ -155,11 +155,14 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
     checkOutPageItemAdd.textContent = "+";
     checkOutPageItemAdd.className = "plusminus-btn";
     checkoutPageItemRemove.className = "plusminus-btn";
-    checkoutPageItemTotal.innerHTML = `Total:  &#8358; ${myItemsArrayWithDetails[i].price}`;
+    const totalPriceQty = parseInt(myItemsArrayWithDetails[i].price) * parseInt(checkOutPageItemQty.textContent);
+    checkoutPageItemTotal.innerHTML = `Total:  &#8358; ${totalPriceQty}`;
     checkoutPageItemTotal.className = "total-price";
 
 
-    total += parseFloat(myItemsArrayWithDetails[i].price)
+    total += totalPriceQty;
+
+    document.querySelector(".sub-total").innerHTML = `Subtotal:  &#8358; ${total}`;
 
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
 
@@ -167,8 +170,6 @@ for (let i = 0; i < myItemsArrayWithDetails.length; i++) {
 
 
 }
-
-// function to add two numbers
 
 
 

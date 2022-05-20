@@ -220,7 +220,7 @@ body,
 .checkout-div {
 
     $five-percent: 5%;
-
+    border-radius: 5px;
     height: 130px;
     display: flex;
     flex-direction: row;
@@ -237,6 +237,7 @@ body,
 
     img {
         max-height: 130px;
+        border-radius: 5px;
     }
 
     h3,

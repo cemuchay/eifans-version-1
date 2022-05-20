@@ -128,11 +128,12 @@ for (var i_3 = 0; i_3 < myItemsArrayWithDetails.length; i_3++) {
     checkOutPageItemAdd.textContent = "+";
     checkOutPageItemAdd.className = "plusminus-btn";
     checkoutPageItemRemove.className = "plusminus-btn";
-    checkoutPageItemTotal.innerHTML = "Total:  &#8358; ".concat(myItemsArrayWithDetails[i_3].price);
+    var totalPriceQty = parseInt(myItemsArrayWithDetails[i_3].price) * parseInt(checkOutPageItemQty.textContent);
+    checkoutPageItemTotal.innerHTML = "Total:  &#8358; ".concat(totalPriceQty);
     checkoutPageItemTotal.className = "total-price";
-    total += parseFloat(myItemsArrayWithDetails[i_3].price);
+    total += totalPriceQty;
+    document.querySelector(".sub-total").innerHTML = "Subtotal:  &#8358; ".concat(total);
     checkoutPageItem.append(checkoutPageItemImg, checkoutPageItemCointainer);
     checkoutPageItemCointainer.append(checkoutPageItemName, checkoutPageItemPrice, checkoutPageItemRemove, checkOutPageItemQty, checkOutPageItemAdd, checkoutPageItemTotal);
 }
-// function to add two numbers
 //# sourceMappingURL=cart.js.map

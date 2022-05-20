@@ -231,6 +231,7 @@ body,
 }
 
 .checkout-div {
+  border-radius: 5px;
   height: 130px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -253,6 +254,7 @@ body,
 
 .checkout-div img {
   max-height: 130px;
+  border-radius: 5px;
 }
 
 .checkout-div h3,
@@ -373,7 +375,7 @@ body,
     height: min-content;
   }
   .checkout-div img {
-    max-height: 100px;
+    max-height: 112px;
   }
 }
 
